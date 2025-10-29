@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>RCA Report Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>RCA Report Generator</h1>
+
+    <form method="post" action="{{ url_for('generate') }}" enctype="multipart/form-data">
+      <label>Site Name</label>
+      <input name="site_name" required />
+
+      <label>Date</label>
+      <input name="date" type="date" required />
+
+      <label>Title</label>
+      <input name="heading" required />
+
+      <label>Description</label>
+      <textarea name="description" rows="15" required></textarea>
+
+      <label>Rca by:</label>
+      <input name="rca_by" required />
+
+      <label>Upload screenshots / screencasts</label>
+      <input type="file" name="files" multiple />
+
+      <button type="submit">Generate PDF & Create GitHub Issue</button>
+    </form>
+  </div>
+</body>
+</html>
